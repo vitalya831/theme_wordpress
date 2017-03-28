@@ -1,0 +1,42 @@
+﻿1.в functions.php активуємо можливість створення меню:
+			
+			<?php register_nav_menus( $locations ); ?>, 
+
+або
+
+			<?php register_nav_menu( $locations ); ?>
+
+Пpиклад декількох меню :
+
+			register_nav_menus( array(
+		'header_menu' => 'Меню в шапке',
+		'footer_menu' => 'Меню в подвале'
+	) );
+
+2. В адмін-панелі появилась можливість створення меню.
+3. Створюємо меню в адмін-панелі, добавляємо потрібні сторінки, рубрики, записи...
+4. Створюмо область для віджетів для меню:
+5. В файлі шаблону замість статичного коду меню добавляємо нашу область для віджетів
+				
+
+<?php wp_nav_menu( array(
+	'theme_location'  => 'header_menu',
+	'menu'            => '', 
+	'container'       => 'div', 
+	'container_class' => '', 
+	'container_id'    => '',
+	'menu_class'      => 'menu', 
+	'menu_id'         => '',
+	'echo'            => true,
+	'fallback_cb'     => 'wp_page_menu',
+	'before'          => '',
+	'after'           => '',
+	'link_before'     => '',
+	'link_after'      => '',
+	'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+	'depth'           => 0,
+	'walker'          => '',
+) ); ?>
+
+
+	        
